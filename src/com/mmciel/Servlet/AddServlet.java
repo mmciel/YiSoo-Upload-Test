@@ -35,11 +35,13 @@ public class AddServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		// TODO Auto-generated method stub
 		String addname = request.getParameter("addkey");
-		//System.out.println(addname);
+		System.out.println(addname);
 		ProjectDataList temp = new ProjectDataList();
 		List<String> tempList = temp.getDataList();
 		tempList.add(addname);
-
+		for(String i: tempList) {
+			System.out.println(i);
+		}
 		temp.addJsonFile(tempList);
 		getServletContext().getRequestDispatcher("/main.jsp").forward(request, response);
 		//response.sendRedirect(request.getContextPath()+"/index.jsp");

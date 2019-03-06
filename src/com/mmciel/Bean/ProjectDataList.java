@@ -2,9 +2,13 @@ package com.mmciel.Bean;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -63,7 +67,7 @@ public class ProjectDataList {
 		}
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("name",jsonArray);
-		//System.out.println(jsonObject);
+		System.out.println(jsonObject);
 	    File file = new File(WEBFILEPATH);
 
 		if(!file.exists()){
@@ -75,16 +79,24 @@ public class ProjectDataList {
 		}
 
 	    String s = jsonObject.toString();
-	    FileWriter fw;
+	    FileOutputStream writerStream;
 		try {
-			fw = new FileWriter(file);
-			BufferedWriter out = new BufferedWriter(fw);
-			out.write(s);
-			out.close();
+			writerStream = new FileOutputStream(file);
+		    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(writerStream, "UTF-8"));
+		    writer.write(s);
+		    writer.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
+
 	}
 //	public static void main(String[] args) {
 //		ProjectDataList temp = new ProjectDataList();

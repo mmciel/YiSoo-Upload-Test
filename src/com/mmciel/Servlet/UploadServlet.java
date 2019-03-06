@@ -12,13 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadBase;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import com.mmciel.Tools.FileSolve;
+import com.mmciel.Tools.YiSooLog;
 
 /**
  * Servlet implementation class UploadServlet
@@ -34,7 +33,7 @@ public class UploadServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -44,6 +43,8 @@ public class UploadServlet extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		
 		boolean isMult = ServletFileUpload.isMultipartContent(request);
+		String projectKey=null;
+		String userKey=null;
 		if(isMult) {
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			ServletFileUpload upload = new ServletFileUpload(factory);
@@ -57,11 +58,11 @@ public class UploadServlet extends HttpServlet {
 					tempdir.mkdirs();
 				}
 				factory.setRepository(tempdir);//设置临时位置
+				//System.out.println(tempdir);
 				@SuppressWarnings("unchecked")
 				List<FileItem> items = upload.parseRequest(request);
 				Iterator<FileItem> iter = items.iterator();
-				String projectKey=null;
-				String userKey=null;
+
 				FileItem fileItem=null;
 
 				while(iter.hasNext()) {
@@ -112,6 +113,9 @@ public class UploadServlet extends HttpServlet {
 		}else {
 			request.setAttribute("message", "文件异常");
 		}
+		String logpath = request.getSession().getServletContext().getRealPath("YiSooLog");
+		String value = "project=\""+projectKey+"\" file=\""+userKey+"\""+"\n";
+		YiSooLog.setLog(logpath,"log.txt",value);
 		request.getRequestDispatcher("/message.jsp").forward(request, response);
 	}
 
