@@ -113,9 +113,10 @@ public class UploadServlet extends HttpServlet {
 		}else {
 			request.setAttribute("message", "文件异常");
 		}
-		String logpath = request.getSession().getServletContext().getRealPath("YiSooLog");
+		//String logpath = request.getSession().getServletContext().getRealPath("YiSooLog");
 		String value = "project=\""+projectKey+"\" file=\""+userKey+"\""+"\n";
-		YiSooLog.setLog(logpath,"log.txt",value);
+		System.out.println(value);
+		//YiSooLog.setLog(logpath,"log.txt",value);
 		request.getRequestDispatcher("/message.jsp").forward(request, response);
 	}
 

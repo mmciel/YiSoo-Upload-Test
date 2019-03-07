@@ -17,8 +17,20 @@ import java.util.zip.ZipOutputStream;
 import org.apache.commons.fileupload.FileItem;
 
 import com.mmciel.Bean.UserDataList;
-
+/**
+ * 关于json配置文件的操作
+ * @author mmciel
+ *
+ */
 public class FileSolve {
+	/**
+	 * 更改文件名，保存文件
+	 * @param project 项目名称
+	 * @param name 文件名
+	 * @param webpath web文件地址
+	 * @param oldFileName 原来的文件名称，用于获取后缀名
+	 * @return 成功保存的地址
+	 */
 	public static String saveFile(String project,String name,String webpath,String oldFileName) {
 		
 		String FilePath = webpath+project;
@@ -38,6 +50,11 @@ public class FileSolve {
 			return null;
 		}
 	}
+	/**
+	 * 获取文件名称的列表
+	 * @param file 项目目录
+	 * @param map 文件名的map
+	 */
 	public static void getListFile(File file,Map<String,String> map){
 		String[] filelist = file.list();
 		for(String name:filelist) {
@@ -54,6 +71,13 @@ public class FileSolve {
 //	public static void main(String[] args) {
 //		FileSolve.ZipProject("C:\\Users\\mmciel\\Desktop\\", "新建文件夹");
 //	}
+	/**
+	 * 项目文件夹打包
+	 * @param path web项目路径
+	 * @param projectname 项目名
+	 * @return 最终文件名
+	 */
+	
 	public static String ZipProject(String path, String projectname) {
 		//System.out.println(new Date().getTime());
 		String ZipName = "YiSoo-"+projectname+"-"+new Date().getTime();
@@ -68,6 +92,13 @@ public class FileSolve {
 		//System.out.println(finalName);
 		return finalName;
 	}
+	/**
+	 * 文件压缩操作
+	 * @param sourceFilePath 源文件路径
+	 * @param zipFilePath zip文件路径
+	 * @param fileName 文件名称
+	 * @return 文件名
+	 */
 	public static String fileToZip(String sourceFilePath,String zipFilePath,String fileName){  
         String flag = null;  
         File sourceFile = new File(sourceFilePath);  

@@ -19,6 +19,11 @@ import org.apache.commons.io.FileUtils;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+/**
+ * 获取json配置文件 关于项目名称的数据
+ * @author mmciel
+ *
+ */
 public class ProjectDataList {
 	private final String FILEPATH =this.getClass().getClassLoader().getResource("").getPath().replace("/build/classes/", "").replace("%20", " ")
 			+ "/WebContent/WEB-INF/userdata/projectdata.json";
@@ -59,7 +64,10 @@ public class ProjectDataList {
 	public String getFILEPATH() {
 		return FILEPATH;
 	}
-
+	/**
+	 * 保存json
+	 * @param list 项目名列表
+	 */
 	public void addJsonFile(List<String> list) {
 		JSONArray jsonArray = new JSONArray();  
 		for(int i=0;i<list.size();i++) {
