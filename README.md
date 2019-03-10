@@ -12,15 +12,15 @@
 
 主页：
 
-![](https://raw.githubusercontent.com/mmciel/YiSoo-Upload-Test/master/temp-img/1 (1).png)
+![text](https://raw.githubusercontent.com/mmciel/YiSoo-Upload-Test/master/temp-img/1 (1).png)
 
 提交预览：
 
-![](https://raw.githubusercontent.com/mmciel/YiSoo-Upload-Test/master/temp-img/1 (2).png)
+![text](https://raw.githubusercontent.com/mmciel/YiSoo-Upload-Test/master/temp-img/1 (2).png)
 
 管理员：
 
-![](https://raw.githubusercontent.com/mmciel/YiSoo-Upload-Test/master/temp-img/1 (3).png)
+![text](https://raw.githubusercontent.com/mmciel/YiSoo-Upload-Test/master/temp-img/1 (3).png)
 
 # 实现
 
