@@ -12,7 +12,7 @@
 
 主页：
 
-![text](https://raw.githubusercontent.com/mmciel/YiSoo-Upload-Test/master/temp-img/1 (1).png)
+![text](https://raw.githubusercontent.com/mmciel/YiSoo-Upload-Test/master/temp-img/1%20(1).png)
 
 提交预览：
 
